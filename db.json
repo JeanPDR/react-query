@@ -3,61 +3,61 @@
     {
       "userId": 1,
       "id": 1,
-      "title": "delectus aut autem",
+      "title": "Implementar função de autenticação",
       "completed": false
     },
     {
       "userId": 1,
       "id": 2,
-      "title": "quis ut nam facilis et officia qui",
+      "title": "Configurar ambiente de desenvolvimento local",
       "completed": false
     },
     {
       "userId": 1,
       "id": 3,
-      "title": "fugiat veniam minus",
+      "title": "Corrigir bug na API de usuários",
       "completed": false
     },
     {
       "userId": 1,
       "id": 4,
-      "title": "et porro tempora",
+      "title": "Criar testes unitários para o módulo de pagamento",
       "completed": false
     },
     {
       "userId": 1,
       "id": 5,
-      "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+      "title": "Refatorar código legado do sistema de login",
       "completed": false
     },
     {
       "userId": 1,
       "id": 6,
-      "title": "qui ullam ratione quibusdam voluptatem quia omnis",
+      "title": "Documentar integração com API externa",
       "completed": false
     },
     {
       "userId": 1,
       "id": 7,
-      "title": "illo expedita consequatur quia in",
+      "title": "Configurar CI/CD no GitHub Actions",
       "completed": false
     },
     {
       "userId": 1,
       "id": 8,
-      "title": "quo adipisci enim quam ut ab",
+      "title": "Implementar cache na aplicação para melhorar performance",
       "completed": false
     },
     {
       "userId": 1,
       "id": 9,
-      "title": "molestiae perspiciatis ipsa",
+      "title": "Revisar pull requests pendentes",
       "completed": false
     },
     {
       "userId": 1,
       "id": 10,
-      "title": "illo est ratione doloremque quia maiores aut",
+      "title": "Deploy da nova versão no ambiente de produção",
       "completed": true
     }
   ]
