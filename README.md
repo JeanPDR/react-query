@@ -1,70 +1,101 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Query Project
 
-## Available Scripts
+Este projeto utiliza **React Query** para simplificar o gerenciamento de estados assíncronos, como chamadas de APIs e cache de dados.
 
-In the project directory, you can run:
+## 📋 Funcionalidades Aprendidas
 
-### `npm start`
+- **Data Fetching**: Uso do `useQuery` para buscar dados de forma eficiente.
+- **Cache e Sincronização**: Configuração do cache automático para melhorar a performance e reduzir chamadas desnecessárias.
+- **Mutations**: Implementação de operações com `useMutation` para alterar dados no servidor.
+- **Polling e Revalidação**: Atualização automática de dados em intervalos regulares e ao focar na janela.
+- **Query Invalidation**: Invalidação de queries para garantir que os dados estejam sempre atualizados.
+- **Erro Handling**: Tratamento de erros com fallback UI e retries automáticos.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Tecnologias Utilizadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React Query**: Gerenciamento de estado assíncrono.
+- **Axios ou Fetch**: Para chamadas HTTP.
+- **React**: Biblioteca principal para a interface do usuário.
+- **TypeScript (opcional)**: Tipagem estática para maior segurança e manutenção do código.
 
-### `npm test`
+## 🛠️ Instalação e Configuração
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/JeanPDR/react-query.git
+   ```
+2. Acesse o diretório do projeto:
+   ```bash
+   cd react-query
+   ```
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+4. Execute a aplicação:
+   ```bash
+   npm start
+   ```
 
-### `npm run build`
+## 💡 Exemplos de Uso
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Fetching com `useQuery`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```javascript
+import { useQuery } from 'react-query';
+import axios from 'axios';
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+const fetchUsers = async () => {
+  const { data } = await axios.get('/api/users');
+  return data;
+};
 
-### `npm run eject`
+function Users() {
+  const { data, error, isLoading } = useQuery('users', fetchUsers);
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error loading data</p>;
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  return (
+    <ul>
+      {data.map(user => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+  );
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Mutação com `useMutation`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```javascript
+import { useMutation } from 'react-query';
+import axios from 'axios';
 
-## Learn More
+const createUser = async (user) => {
+  const { data } = await axios.post('/api/users', user);
+  return data;
+};
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+function CreateUser() {
+  const mutation = useMutation(createUser);
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  return (
+    <button
+      onClick={() => mutation.mutate({ name: 'Novo Usuário' })}
+    >
+      Adicionar Usuário
+    </button>
+  );
+}
+```
 
-### Code Splitting
+## 📚 Documentação
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [React Query Documentation](https://react-query.tanstack.com/)
+- [Axios](https://axios-http.com/)
 
-### Analyzing the Bundle Size
+## 📝 Contribuição
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma **issue** ou enviar um **pull request**.
