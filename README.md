@@ -33,10 +33,16 @@ Este projeto utiliza **React Query** para simplificar o gerenciamento de estados
    ```bash
    npm install
    ```
-4. Execute a aplicação:
+
+4. Em Terminal seprado execute a API Fake criado pelo json-server :
    ```bash
    npm start
    ```
+5. Execute a aplicação:
+   ```bash
+   npm start
+   ```
+
 
 ## 💡 Exemplos de Uso
 
